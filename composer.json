@@ -1,5 +1,5 @@
 {
-    "name": "aphisitworachorch/kacher",
+    "name": "bauerdot/laravel-dbml",
     "description": "Kacher is Laravel DB to DBML (dbdiagram.io/dbdocs.io)",
     "type": "package",
     "license": "MIT",
@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Aphisitworachorch\\Kacher\\": "src/"
+            "Bauerdot\\LaravelDbml\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Aphisitworachorch\\Kacher\\Tests\\": "tests"
+            "Bauerdot\\LaravelDbml\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -32,7 +32,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Aphisitworachorch\\Kacher\\KacherServiceProvider"
+                "Bauerdot\\LaravelDbml\\LaravelDbmlServiceProvider"
             ]
         }
     },

@@ -1,8 +1,8 @@
 <?php
 
-namespace Aphisitworachorch\Kacher\Console;
+namespace Bauerdot\LaravelDbml\Console;
 
-use Aphisitworachorch\Kacher\Controller\DBMLController;
+use Bauerdot\LaravelDbml\Controller\DBMLController;
 use Doctrine\DBAL\Exception;
 use Illuminate\Console\Command;
 

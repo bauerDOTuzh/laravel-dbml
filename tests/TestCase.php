@@ -1,6 +1,6 @@
 <?php
 
-namespace Aphisitworachorch\Kacher\Tests;
+namespace Bauerdot\LaravelDbml\Tests;
 
 use Illuminate\Foundation\Application;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -17,7 +17,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            \Aphisitworachorch\Kacher\KacherServiceProvider::class,
+            \Bauerdot\LaravelDbml\LaravelDbmlServiceProvider::class,
         ];
     }
 

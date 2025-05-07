@@ -1,6 +1,6 @@
 <?php
 
-namespace Aphisitworachorch\Kacher\Traits;
+namespace Bauerdot\LaravelDbml\Traits;
 
 
 trait DBMLSyntaxTraits
@@ -13,6 +13,7 @@ trait DBMLSyntaxTraits
             "sqlsrv" => "Microsoft SQL Server",
             "oracle" => "Oracle",
             "cockroach" => "CockroachDB",
+            "sqlite" => "SQLite",
         ];
 
         $getDBAlias = $dbDecision[$database];
@@ -53,7 +54,8 @@ trait DBMLSyntaxTraits
         $annotate = "";
         $final = "";
         $oneFormat = "";
-        if(count($col) <= 1){
+
+        if(count($col) <= 1 && count($col) > 0){
             $oneFormat = "\t\t".$col[0];
         }
         if(count($col) > 1){
@@ -71,7 +73,7 @@ trait DBMLSyntaxTraits
         return ($final ?: $oneFormat) . " " . $annotate."\n";
     }
 
-    public function column($name,$type,$special,$note,$nullable,$default,$length)
+    public function column($name, $type, $special, $note, $nullable, $default, $length, $jsonSchema = null)
     {
         $annotation = [];
         $len_annotate = null;
@@ -88,9 +90,6 @@ trait DBMLSyntaxTraits
             }
         }
 
-        if($note){
-            $annotation[] = "note: '$note'";
-        }
         if($nullable === "yes"){
             $annotation[] = "null";
         }else{
@@ -99,6 +98,13 @@ trait DBMLSyntaxTraits
 
         if($default){
             $annotation[] = "default: " . ((str_starts_with($default, "'") && str_ends_with($default, "'")) ? $default : "'" . $default . "'");
+        }
+        
+        // Add note with schema if available, otherwise use the regular note
+        if ($jsonSchema) {
+            $annotation[] = "note: '''Schema: $jsonSchema'''";
+        } elseif ($note) {
+            $annotation[] = "note: '''$note'''";
         }
 
         if($length){
