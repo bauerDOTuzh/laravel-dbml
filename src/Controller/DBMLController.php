@@ -516,8 +516,8 @@ class DBMLController extends Controller
             $ignoredTables = array_merge($ignoredTables, $this->options['config']['ignored_tables']);
         }
         
-        // Combine system tables and ignored tables
-        $allIgnoredTables = array_merge($systemTables, $ignoredTables);
+        // Combine all ignored tables
+        $allIgnoredTables = array_merge($allIgnoredTables, $ignoredTables);
         
         return array_filter($tables, function($table) use ($allIgnoredTables) {
             if (!isset($table['name'])) {

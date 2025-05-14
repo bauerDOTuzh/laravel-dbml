@@ -28,6 +28,9 @@ return [
             'sessions',
             'cache',
             'jobs',
+            "cache_locks",
+            "job_batches",
+            "password_reset_tokens",
         ],
         'spatie-permissions' => [
             'permissions',

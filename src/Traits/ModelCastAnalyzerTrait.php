@@ -269,6 +269,11 @@ trait ModelCastAnalyzerTrait
                 }
             }
         }
+    
+        // if documentation empty return noting
+        if (trim($documentation) === trim("\n\tNote: '''Laravel Cast Attributes:")) {
+            return null;
+        }
 
         return $documentation . "'''";
     }

@@ -144,7 +144,7 @@ class DBMLParse extends Command
             
             $rand = Str::random(8);
             $path = "dbml";
-            $fileName = "{$path}/dbml_{$database}_".$rand.".txt";
+            $fileName = "{$path}/dbml_{$database}_".$rand.".dbml";
             
             // Make sure the directory exists
             if (!Storage::exists($path)) {
