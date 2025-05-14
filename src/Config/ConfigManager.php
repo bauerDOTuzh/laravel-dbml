@@ -92,7 +92,8 @@ class ConfigManager
         }
         
         // Parse YAML file
-        $config = yaml_parse_file($configPath);
+        // $config = yaml_parse_file($configPath);
+        throw new Exception("YAML parsing is not implemented yet.");
         
         if ($config === false) {
             throw new Exception("Invalid YAML in config file");
